@@ -11,7 +11,13 @@ module "vpc" {
     local.developer,
     local.client,
   ]
+
+
+
 }
+
+
+
 
 # Set entire regions ebs to encrypted by default
 resource "aws_ebs_encryption_by_default" "default_encryption" {

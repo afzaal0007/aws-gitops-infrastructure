@@ -1,7 +1,7 @@
 locals {
 
-  env = terraform.workspace
-
+  env             = terraform.workspace
+  project         = "muller"
   client          = "HealthCare"
   developer       = "Afzaal"
   deployment-repo = "https://github.com/afzaal0007/aws-gitops-infrastructure.git"

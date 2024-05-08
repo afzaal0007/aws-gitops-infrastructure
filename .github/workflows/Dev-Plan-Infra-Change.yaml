@@ -55,6 +55,10 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+
+      - name: Create workspace
+        working-directory: ./src
+        run: terraform workspace new dev
         
       - name: select workspace
         working-directory: ./src

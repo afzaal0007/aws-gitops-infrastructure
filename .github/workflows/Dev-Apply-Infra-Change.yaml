@@ -74,7 +74,7 @@ jobs:
 
       - name: Terraform apply
         working-directory: ./src
-        run: terraform apply -no-color
+        run: terraform apply -auto-approve -input=false
         # if: github.event_name == 'push'
         # continue-on-error: true
 

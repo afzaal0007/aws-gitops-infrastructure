@@ -1,18 +1,18 @@
-resource "aws_nat_gateway" "main" {
+# resource "aws_nat_gateway" "main" {
 
-  allocation_id = aws_eip.main.id
-  subnet_id     = aws_subnet.public[keys(var.public_subnets)[0]].id
+#   allocation_id = aws_eip.main.id
+#   subnet_id     = aws_subnet.public[keys(var.public_subnets)[0]].id
 
-  lifecycle {
-    prevent_destroy = false
-  }
+#   lifecycle {
+#     prevent_destroy = false
+#   }
 
-  tags = {
-    Name         = "${local.resource_name_prefix}-natgw"
-    Environment  = var.project_info[0]
-    Client        = var.project_info[2]
-    ResourceType = "NATGW"
-    Developer    = var.project_info[1]
-  }
+#   tags = {
+#     Name         = "${local.resource_name_prefix}-natgw"
+#     Environment  = var.project_info[0]
+#     Client       = var.project_info[2]
+#     ResourceType = "NATGW"
+#     Developer    = var.project_info[1]
+#   }
 
-}
+# }

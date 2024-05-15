@@ -16,9 +16,9 @@ output "igw_id" {
   value = aws_internet_gateway.main.id
 }
 
-output "nat_gw_id" {
-  value = aws_nat_gateway.main.id
-}
+# output "nat_gw_id" {
+#   value = aws_nat_gateway.main.id
+# }
 
 output "public_route_table_id" {
   value = aws_route_table.rt-public.id

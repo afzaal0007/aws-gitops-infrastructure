@@ -1,18 +1,11 @@
 # .github/workflows/aws-terraform-plan.yml
 
-# This workflow is triggered by a push to the main branch or a pull request.
-name: DEV AWS Terraform Plan
+# This workflow is triggered Manually Once Dev Terraform Plan Work Flow Succeeded
+
+name: DEV AWS Terraform Apply
 
 # The on keyword defines the events that will trigger the workflow.
-on:
-  push:
-    branches:
-      - main
-      - feature/*
-      - bugfix/*
-      - hotfix/*
-
-  pull_request:
+on: workflow_dispatch
 
 # The permissions keyword defines the permissions that the workflow will need to run.
 permissions:
@@ -20,7 +13,7 @@ permissions:
   contents: read # This is required for actions/checkout
   pull-requests: write # This is required for gh bot to comment PR
   
-# The env keyword defines the environment variables that will be available to the workflow.
+# The env keyword defines the environment variables that will be available to the workflow.on: workflow_dispatch
 env:
   TF_LOG: INFO
   AWS_REGION: ${{ secrets.DEV_AWS_REGION }}
@@ -79,14 +72,14 @@ jobs:
       - name: Terraform Validate
         run: terraform validate -no-color
 
-      - name: Terraform Plan
+      - name: Terraform apply
         working-directory: ./src
-        run: terraform plan -no-color
-        if: github.event_name == 'push'
-        continue-on-error: true
+        run: terraform apply -no-color
+        # if: github.event_name == 'push'
+        # continue-on-error: true
 
-      - name: Comment on Pull Request
-        if: github.event_name == 'pull_request'
-        run: |
-          echo "Terraform plan summary:"
-          terraform show -json | jq '.resource_changes[] | .change.actions[]' | grep -E 'create|update|delete'
+      # - name: Comment on Pull Request
+      #   if: github.event_name == 'pull_request'
+      #   run: |
+      #     echo "Terraform plan summary:"
+      #     terraform show -json | jq '.resource_changes[] | .change.actions[]' | grep -E 'create|update|delete'

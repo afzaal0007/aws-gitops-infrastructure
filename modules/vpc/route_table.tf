@@ -60,8 +60,10 @@ resource "aws_route_table_association" "rt-private-asso" {
   subnet_id      = aws_subnet.private[each.key].id
 }
 
-resource "aws_route" "nat_gw" {
-  route_table_id         = aws_route_table.rt-private.id
-  destination_cidr_block = var.private_route_table_cidr_block
-  nat_gateway_id         = aws_nat_gateway.main.id
-}
+
+# route to nat gateway
+# resource "aws_route" "nat_gw" {
+#   route_table_id         = aws_route_table.rt-private.id
+#   destination_cidr_block = var.private_route_table_cidr_block
+#   nat_gateway_id         = aws_nat_gateway.main.id
+# }

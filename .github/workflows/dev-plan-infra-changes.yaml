@@ -14,7 +14,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ../src
+        working-directory: ./src
 
     steps:
       - name: Checkout repository
@@ -25,16 +25,21 @@ jobs:
       #     cp .aws_providers/dev-HealthCare.tf src
 
       - name: initialize terraform
-        working-directory: ../src
+        working-directory: ./src
         run: |
           terraform init
+           
+      - name: create text file
+          working-directory: ./src
+          run: |
+            touch afzaal.txt
 
       - name: select workspace
-        working-directory: ../src
+        working-directory: ./src
         run: |
           terraform workspace select dev
 
       - name: plan changes
-        working-directory: ../src
+        working-directory: ./src
         run: |
           terraform plan

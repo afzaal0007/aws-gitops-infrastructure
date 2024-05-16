@@ -1,4 +1,4 @@
-name: "Terraform Plan - HealthCare Development Infra"
+name: "Terraform Plan - HealthCare Dev Infra"
 
 on:
   push:

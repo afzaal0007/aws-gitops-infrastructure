@@ -1,0 +1,34 @@
+name: "Terraform Apply - HealthCare Development Infra"
+
+on: workflow_dispatch
+
+jobs:
+  apply-changes:
+    runs-on:  [self-hosted, HealthCare-dev-runner]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # - name: copy provider file
+      #   run: |
+      #     cp .aws_providers/dev-HealthCare.tf src
+
+      - name: initialize terraform
+        working-directory: ./src
+        run: |
+          terraform init
+
+      - name: select workspace
+        working-directory: ./src
+        run: |
+          terraform workspace select dev
+
+      - name: plan changes
+        working-directory: ./src
+        run: |
+          terraform plan
+
+      - name: apply changes
+        working-directory: ./src
+        run: |
+          terraform apply -auto-approve -input=false

@@ -1,0 +1,35 @@
+name: "Terraform Plan - HealthCare Development Infra"
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+      - bugfix/*
+      - hotfix/*
+
+jobs:
+  plan-changes:
+    runs-on:  [self-hosted, HealthCare-dev-runner]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # - name: copy provider file
+      #   run: |
+      #     cp .aws_providers/dev-HealthCare.tf src
+
+      - name: initialize terraform
+        working-directory: ./src
+        run: |
+          terraform init
+
+      - name: select workspace
+        working-directory: ./src
+        run: |
+          terraform workspace select dev
+
+      - name: plan changes
+        working-directory: ./src
+        run: |
+          terraform plan

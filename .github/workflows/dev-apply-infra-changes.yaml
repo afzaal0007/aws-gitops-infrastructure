@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 jobs:
   apply-changes:
-    runs-on:  [self-hosted, dev-runner]
+    runs-on:  self-hosted
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

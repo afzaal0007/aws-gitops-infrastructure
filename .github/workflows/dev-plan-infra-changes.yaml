@@ -28,10 +28,10 @@ jobs:
         working-directory: ./src
         run: |
           terraform init
-           
+
       - name: create text file
-          working-directory: ./src
-          run: |
+        working-directory: ./src
+        run: |
             touch afzaal.txt
 
       - name: select workspace

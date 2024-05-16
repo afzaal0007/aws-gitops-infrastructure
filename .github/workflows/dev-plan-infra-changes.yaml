@@ -10,7 +10,7 @@ on:
 
 jobs:
   plan-changes:
-    runs-on:  [self-hosted, HealthCare-dev-runner]
+    runs-on:  [self-hosted, dev-runner]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

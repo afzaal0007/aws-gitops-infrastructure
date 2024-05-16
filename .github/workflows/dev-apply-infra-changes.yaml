@@ -5,6 +5,9 @@ on: workflow_dispatch
 jobs:
   apply-changes:
     runs-on:  self-hosted
+    run:
+      shell: bash
+      working-directory: ./src
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

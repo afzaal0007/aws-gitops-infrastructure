@@ -32,7 +32,7 @@ jobs:
       - name: create text file
         working-directory: ./src
         run: |
-            touch afzaal.txt
+            touch afzaal-kubi.txt
 
       - name: select workspace
         working-directory: ./src

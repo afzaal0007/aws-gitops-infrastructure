@@ -16,7 +16,7 @@ terraform {
 # }
 
 
-provider "aws" {
-  region = local.region[local.environment]
-}
+# provider "aws" {
+#   region = local.region[local.environment]
+# }
 

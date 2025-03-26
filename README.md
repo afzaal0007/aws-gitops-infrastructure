@@ -3,14 +3,14 @@
 # Real World Boot Camp of DevOps
 
 # Real World Production infrastructure to Host an APP on K8s EKS and other AWS Services
-This is the Repo to Build AWS Infrastructure for a Production Grade app.
+This is the Repo to Build AWS Infrastructure for a Production Grade Health Care app.
 
-Infrastructure  will be implemented in Terraform and this will include all the Services and systems which are required to run a RealWorld Production Grade APP / workload.
+Infrastructure was implemented in Terraform and includes all the Services and systems required to run a RealWorld Production Grade Health Care APP/workload.
 
-Below are the Services and Systems used by the Production Grade app:
+Below are the Services and Systems used by the This Production Grade app:
 
 1. Terraform
-2. Teraform Linting, Terra-form-tfscan, trunk, checkov
+2. Teraform Linting, Terraform-tfscan, trunk, checkov
 3. AWS Certificate Manager ACM
 4. AWS Amplify
 5. AWS APi-Gateway
